@@ -1,0 +1,42 @@
+using Microsoft.Office.Interop.Word;
+using System;
+using System.IO;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            CrackFile(@"C:\Users\Terry\Desktop\crack\realnum.txt");
+        }
+
+        private static void CrackFile(string wordlist)
+        {
+            var lines = File.ReadLines(wordlist);
+            foreach (var line in lines)
+            {
+                var WordApp = new Application();
+                object missing = System.Reflection.Missing.Value;
+                object readOnly = false;
+                object isVisible = true;
+                object password = line;
+                object fileToOpen = @"C:\Users\Terry\Desktop\crack\MDF-SF1.docx";
+                var aDoc = new Document();
+                try
+                {
+                    aDoc = WordApp.Documents.Open(ref fileToOpen, ref missing, ref readOnly, ref missing, ref password, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref isVisible, ref missing, ref missing, ref missing);
+                    Console.WriteLine(line);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("{0} invalid", line);
+                }
+                aDoc.Close();
+                WordApp.Quit();
+            }
+            Console.WriteLine("not in list");
+        }
+    }
+}
