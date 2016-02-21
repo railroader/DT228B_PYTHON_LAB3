@@ -13,7 +13,7 @@ def conclusion(val1,val2):
         print "Both before and after hash values are the same "
     else:
         print "Conclusion :"
-        print "Both before and after hash values are the same "
+        print "Both before and after hash values are not the same "
 
 
 def start():
