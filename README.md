@@ -8,8 +8,9 @@ Make sure that you are program is documented. It is important that your program 
 
 Run the Main.py located in the project root directory.
 The logic of the application is located in Python Package called 
-'''python
+
+```python
 DT228B_LIB
-'''
+```
 
 Win32.com library was downloaded from [https://sourceforge.net/projects/pywin32/files/]
